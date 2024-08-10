@@ -25,9 +25,8 @@ const ReportCanvas = () => {
 
   useEffect(() => {
     if (selectedCampaign) {
-      
     }
-  }, [selectedCampaign])
+  }, [selectedCampaign]);
 
   const [{ isOver }, drop] = useDrop({
     accept: "METRIC",
@@ -57,7 +56,7 @@ const ReportCanvas = () => {
   return (
     <main
       ref={drop}
-      className={`w-3/4 p-4 bg-gray-50 ${
+      className={`w-3/4 p-4 bg-gray-50 max-h-screen ${
         isOver ? "border-dashed border-4 border-blue-400" : ""
       }`}
     >
@@ -88,7 +87,7 @@ const ReportCanvas = () => {
           >
             <option value="bar">Bar</option>
             <option value="line">Line</option>
-            {/* <option value="pie">Pie</option> */}
+            <option value="pie">Pie</option>
           </select>
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Chart } from "chart.js/auto";
+import TableComponent from "./TableComponent";
 
 const ChartComponent = ({
   metrics,
@@ -62,8 +63,11 @@ const ChartComponent = ({
   }, [metrics, chartType, colorScheme, campaignData]);
 
   return (
-    <div className="mb-4">
-      <canvas ref={chartRef} height="200"></canvas>
+    <div className="max-h-500 mb-4">
+      <canvas style={{ maxHeight: "300px" }} ref={chartRef} height="200"></canvas>
+
+      {/* Table below the chart */}
+      <TableComponent metrics={metrics} campaignData={campaignData} />
     </div>
   );
 };
