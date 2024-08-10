@@ -43,6 +43,10 @@ const ReportCanvas = () => {
     }
   };
 
+  const removeMetric = (metricId) => {
+    setMetrics(metrics.filter((metric) => metric.id !== metricId));
+  };
+
   const selectedCampaignData =
     campaigns.find((campaign) => campaign.id === selectedCampaign) || {};
 
@@ -64,6 +68,8 @@ const ReportCanvas = () => {
         chartType={chartType}
         setChartType={setChartType}
         campaigns={campaigns}
+        metrics={metrics}
+        removeMetric={removeMetric}
       />
 
       {metrics.length === 0 ? (
