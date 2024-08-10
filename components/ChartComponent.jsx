@@ -35,7 +35,7 @@ const ChartComponent = ({
           backgroundColor: colors.backgroundColor,
           borderColor: colors.borderColor,
           borderWidth: 1,
-          borderRadius: 8,
+          borderRadius: 6,
           borderSkipped: false,
         };
       });

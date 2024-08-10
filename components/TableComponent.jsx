@@ -20,7 +20,7 @@ const TableComponent = ({ metrics, campaignData }) => {
   ];
 
   return (
-    <div className="border rounded-2xl border-solid border-[#e5e5e5] bg-white pb-2 mt-5">
+    <div className="border rounded-2xl border-solid border-[#e5e5e5] bg-white p-4 mt-5">
       {/* CSV Download Link */}
       <div className="flex justify-between items-center mt-4 mb-5 ">
         <h4 className="ml-5 text-[#212121] text-2xl font-medium">Selected Metrics Data</h4>

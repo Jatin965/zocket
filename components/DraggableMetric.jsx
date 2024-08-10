@@ -15,14 +15,13 @@ const DraggableMetric = ({ metric }) => {
     <div
       ref={drag}
       draggable
-      className={`flex items-center p-2 mb-4  border border-gray-200 rounded-md shadow-sm cursor-grab  ${
+      className={`flex items-center p-2 mb-4  border border-[#0052f1] bg-[rgba(0,82,241,0.1)] rounded-xl cursor-grab  ${
         isDragging ? "opacity-80 cursor-grabbing" : "opacity-100"
       } hover:shadow-sm transition-shadow duration-200 ease-in-out`}
-      style={{ backgroundColor: "rgba(0, 52, 187, 0.05)" }}
     >
       <div className="flex-shrink-0 p-2 bg-blue-10 rounded-md">
         <svg
-          className="w-6 h-6 text-blue-600"
+          className="w-6 h-6 text-[#212121]"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -37,7 +36,7 @@ const DraggableMetric = ({ metric }) => {
         </svg>
       </div>
       <div className="ml-4">
-        <div className="text-lg font-semibold text-gray-800">{metric.name}</div>
+        <div className="text-lg font-medium text-[#212121]">{metric.name}</div>
       </div>
     </div>
   );
