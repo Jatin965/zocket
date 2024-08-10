@@ -11,12 +11,14 @@ const metrics = [
 
 const Sidebar = () => {
   return (
-    <aside className="w-1/4 bg-gray-100 p-4">
-      <h2 className="text-lg font-bold mb-4">Metrics</h2>
-      <div>
-        {metrics.map((metric) => (
-          <DraggableMetric key={metric.id} metric={metric} />
-        ))}
+    <aside className="w-1/4 max-h-screen">
+      <div className="p-4 border rounded-2xl border-solid border-[#e5e5e5] bg-white mt-5 ml-4">
+        <h2 className="mb-4 text-[#212121] text-2xl font-medium">Metrics</h2>
+        <div>
+          {metrics.map((metric) => (
+            <DraggableMetric key={metric.id} metric={metric} />
+          ))}
+        </div>
       </div>
     </aside>
   );

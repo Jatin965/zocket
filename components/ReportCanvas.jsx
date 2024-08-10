@@ -56,54 +56,62 @@ const ReportCanvas = () => {
   return (
     <main
       ref={drop}
-      className={`w-3/4 p-4 bg-gray-50 max-h-screen ${
+      className={`w-3/4 p-4 max-h-screen border-dashed border-4 border-gray-50 ${
         isOver ? "border-dashed border-4 border-blue-400" : ""
       }`}
     >
-      <h2 className="text-lg font-bold mb-4">Report Canvas</h2>
+      <div className="p-4 border rounded-2xl border-solid border-[#e5e5e5] bg-white">
+        <h2 className="mb-4 text-[#212121] text-2xl font-medium ">Report Canvas</h2>
 
-      <div className="flex mb-4">
-        <div className="mr-4">
-          <label className="block font-bold mb-1">Select Campaign:</label>
-          <select
-            value={selectedCampaign}
-            onChange={(e) => setSelectedCampaign(Number(e.target.value))}
-            className="p-2 border rounded"
-          >
-            {campaigns.map((campaign) => (
-              <option key={campaign.id} value={campaign.id}>
-                {campaign.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        <div className="flex mb-4">
+          <div className="mr-4">
+            <label className="block font-bold text-gray-700 mb-2">
+              Select Campaign:
+            </label>
+            <select
+              value={selectedCampaign}
+              onChange={(e) => setSelectedCampaign(Number(e.target.value))}
+              className="p-2 pr-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              {campaigns.map((campaign) => (
+                <option key={campaign.id} value={campaign.id}>
+                  {campaign.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <div className="mr-4">
-          <label className="block font-bold mb-1">Chart Type:</label>
-          <select
-            value={chartType}
-            onChange={(e) => setChartType(e.target.value)}
-            className="p-2 border rounded"
-          >
-            <option value="bar">Bar</option>
-            <option value="line">Line</option>
-            <option value="pie">Pie</option>
-          </select>
-        </div>
+          <div className="mr-4">
+            <label className="block font-bold text-gray-700 mb-2 ">
+              Chart Type:
+            </label>
+            <select
+              value={chartType}
+              onChange={(e) => setChartType(e.target.value)}
+              className="p-2 pr-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="bar">Bar</option>
+              <option value="line">Line</option>
+              <option value="pie">Pie</option>
+            </select>
+          </div>
 
-        <div>
-          <label className="block font-bold mb-1">Color Scheme:</label>
-          <select
-            value={colorScheme.name}
-            onChange={colorSchemeChangeHandler}
-            className="p-2 border rounded"
-          >
-            {colorSchemes.map((color) => (
-              <option key={color.name} value={color.name}>
-                {color.name}
-              </option>
-            ))}
-          </select>
+          <div>
+            <label className="block font-bold text-gray-700 mb-2">
+              Color Scheme:
+            </label>
+            <select
+              value={colorScheme.name}
+              onChange={colorSchemeChangeHandler}
+              className="p-2 pr-8 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              {colorSchemes.map((color) => (
+                <option key={color.name} value={color.name}>
+                  {color.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
 
@@ -112,12 +120,14 @@ const ReportCanvas = () => {
           Drag metrics here to start building your report
         </p>
       ) : (
-        <ChartComponent
-          metrics={metrics}
-          chartType={chartType}
-          colorScheme={selectedColorScheme}
-          campaignData={selectedCampaignData}
-        />
+        <div className="mt-5">
+          <ChartComponent
+            metrics={metrics}
+            chartType={chartType}
+            colorScheme={selectedColorScheme}
+            campaignData={selectedCampaignData}
+          />
+        </div>
       )}
     </main>
   );

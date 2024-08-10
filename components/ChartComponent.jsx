@@ -35,6 +35,8 @@ const ChartComponent = ({
           backgroundColor: colors.backgroundColor,
           borderColor: colors.borderColor,
           borderWidth: 1,
+          borderRadius: 8,
+          borderSkipped: false,
         };
       });
 
@@ -63,8 +65,13 @@ const ChartComponent = ({
   }, [metrics, chartType, colorScheme, campaignData]);
 
   return (
-    <div className="max-h-500 mb-4">
-      <canvas style={{ maxHeight: "300px" }} ref={chartRef} height="200"></canvas>
+    <div className="max-h-500 mb-3">
+      <canvas
+        style={{ maxHeight: "350px" }}
+        ref={chartRef}
+        height="300"
+        className="border rounded-2xl border-solid border-[#e5e5e5] bg-white pt-6 pb-6 pl-4 pr-4"
+      ></canvas>
 
       {/* Table below the chart */}
       <TableComponent metrics={metrics} campaignData={campaignData} />

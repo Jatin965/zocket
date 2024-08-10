@@ -20,7 +20,22 @@ const TableComponent = ({ metrics, campaignData }) => {
   ];
 
   return (
-    <div>
+    <div className="border rounded-2xl border-solid border-[#e5e5e5] bg-white pb-2 mt-5">
+      {/* CSV Download Link */}
+      <div className="flex justify-between items-center mt-4 mb-5 ">
+        <h4 className="ml-5 text-[#212121] text-2xl font-medium">Selected Metrics Data</h4>
+        <div className="mt-2 mr-5">
+          <CSVLink
+            data={tableRows}
+            headers={csvHeaders}
+            filename="metrics-report.csv"
+            className="inline-flex items-center px-8 py-3 text-white bg-[#0052f1] hover:bg-[#0052f1]-700 focus:outline-none focus:ring-2 focus:bg-[#0034BB] focus:ring-opacity-50 rounded-lg  text-sm font-medium"
+          >
+            Download CSV
+          </CSVLink>
+        </div>
+      </div>
+
       {/* Table below the chart */}
       {metrics.length > 0 && (
         <div className="max-h-400">
@@ -54,18 +69,6 @@ const TableComponent = ({ metrics, campaignData }) => {
           </table>
         </div>
       )}
-
-      {/* CSV Download Link */}
-      <div className="mt-4">
-        <CSVLink
-          data={tableRows}
-          headers={csvHeaders}
-          filename="metrics-report.csv"
-          className="text-blue-600 hover:underline"
-        >
-          Download CSV
-        </CSVLink>
-      </div>
     </div>
   );
 };
