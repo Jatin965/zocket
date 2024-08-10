@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Chart } from "chart.js/auto";
-import TableComponent from "./TableComponent";
+import TableComponent from "./Sub/TableComponent";
 
 const ChartComponent = ({
   metrics,
